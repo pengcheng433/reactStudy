@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+		<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+		<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+	</head>
+	<body>
+		<div id="root"></div>
+	</body>
+	<script>
+		class Peron {
+			// 构造器方法
+			constructor(name, age) {
+				// 构造器的this是谁,类的实例对象
+				this.name = name;
+				this.age = age;
+			}
+			// 一般方法
+			code() {
+				// 放在了类原型的对象上
+				// code方法是给实例使用
+				//通过person实例调用code时候,code中的this就是person实例
+				console.log(`我叫${this.name},年龄是${this.age}`, "CODE函数");
+			}
+		}
+		class Student extends Peron {
+			constructor(name, age, grade) {
+				super(name, age);
+				this.grade = grade;
+			}
+			//重写父类方法 函数
+			code() {
+				console.log(`我叫${this.name},年龄是${this.age},我读的是${this.grade}年纪`, "CODE函数");
+			}
+			study() {
+				console.log("努力学习");
+			}
+		}
+		const s1 = new Student("小明同学", 18, "高一");
+		console.log(s1.code());
+		console.log(s1.study());
+		// ReactDOM.render(<Peron />, document.getElementById("root"));
+	</script>
+</html>
