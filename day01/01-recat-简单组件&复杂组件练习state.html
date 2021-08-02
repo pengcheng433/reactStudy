@@ -26,20 +26,9 @@
         this.state = {
           isHot: true,
         }
-        this.form = {
-          page: 1,
-          size: 10,
-        }
       }
       render() {
-        const { page, size } = this.form
-        return (
-          <h2>
-            {page}
-            {size}
-            今天天气很炎热吗 {this.state.isHot ? '热' : '不热'}
-          </h2>
-        )
+        return <h2>今天天气很炎热吗 {this.state.isHot ? '热' : '不热'}</h2>
       }
     }
     ReactDOM.render(<Wather />, document.getElementById('root'))
