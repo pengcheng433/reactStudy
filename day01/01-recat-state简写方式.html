@@ -21,42 +21,27 @@
   </body>
   <script type="text/babel">
     class Wather extends React.Component {
-      constructor(props) {
-        console.log('执行constructor') //1次
-        super(props)
-        this.state = {
-          isHot: true,
-          wind: '微风',
-        }
-        this.nice = this.test.bind(this)
+      // constructor(props) {
+      //   super(props)
+      // }
+      state = {
+        isHot: true,
+        wind: '微风',
       }
       render() {
-        console.log('render') //1次(初始)+N次(改变状态)
-
+        console.log(this)
         const { isHot, wind } = this.state
         return (
-          <h2 id="title" onClick={this.nice}>
+          <h2 id="title" onClick={this.test}>
             今天天气很炎热吗 {isHot ? '热' : '不热'},{wind}
           </h2>
         )
       }
-      test() {
-        // 点击多次调用多少次
-        //类中的方法默认开启严格模式
-        //状态不可以直接更改，需要借助内置API去更改
-        console.log(this.setState)
-        this.setState((state) => ({
-          isHot: !this.state.isHot,
-        }))
+      test = () => {
+        const isHot = this.state.isHot
+        this.setState({ isHot: !isHot })
       }
     }
     ReactDOM.render(<Wather />, document.getElementById('root'))
-    const btn1 = document.getElementById('title')
-    // btn1.addEventListener('click', () => {
-    //   alert('今天天气很炎热吗')
-    // })
-    // btn1.onclick = () => {
-    //   alert('今天天气很炎热吗')
-    // }
   </script>
 </html>
