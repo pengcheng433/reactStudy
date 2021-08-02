@@ -32,11 +32,12 @@
         }
       }
       render() {
+        const { page, size } = this.form
         return (
           <h2>
+            {page}
+            {size}
             今天天气很炎热吗 {this.state.isHot ? '热' : '不热'}
-            {this.form.page}
-            {this.form.size}
           </h2>
         )
       }
