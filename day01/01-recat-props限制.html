@@ -30,6 +30,7 @@
 
       render() {
         const { name, sex, grade } = this.props
+        // name = '123123' //报错 props是只读的
         return (
           <ul>
             <li>姓名:{name}</li>
@@ -45,6 +46,8 @@
       sex: '女',
       grade: 17,
     }
+
+    // props 不可以修改
     //默认组件标签的属性值
     Person.propTypes = {
       name: PropTypes.string.isRequired, //限制name必传 类型为字符串
