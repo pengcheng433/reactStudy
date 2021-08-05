@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+
+  <body>
+    <div id="root1"></div>
+    <div id="root2"></div>
+    <div id="root3"></div>
+  </body>
+  <script type="text/babel">
+    class Person extends React.Component {
+      constructor(props) {
+        super(props)
+      }
+
+      render() {
+        console.log(this)
+        const { name, sex, grade } = this.props.item
+        return (
+          <ul>
+            <li>姓名:{name}</li>
+            <li>性别:{sex}</li>
+            <li>年龄:{grade}</li>
+          </ul>
+        )
+      }
+      // render() {
+      //   const { personList } = this.state
+      //   return (
+      //     <div>
+      //       {personList.map((item, key) => {
+      //         return (
+      //           <ul>
+      //             <li key={}>姓名:{item.name}</li>
+      //             <li key={}>性别:{item.sex}</li>
+      //             <li key={}>年龄:{item.grade}</li>
+      //           </ul>
+      //         )
+      //       })}
+      //     </div>
+      //   )
+      // }
+    }
+    const tom = {
+      name: 'tom',
+      sex: '男',
+      grade: 17,
+    }
+    ReactDOM.render(<Person item={tom} />, document.getElementById('root1'))
+    ReactDOM.render(<Person />, document.getElementById('root2'))
+    ReactDOM.render(<Person />, document.getElementById('root3'))
+  </script>
+</html>
